@@ -5,4 +5,15 @@
     --lightblue: #5274D8;
 }
 
+#mobile-menu{
+    width: 2rem;
+    height: 2rem;
+}
 
+header li{
+    margin-left: 2rem;
+}
+
+header button{
+    margin-left: 2rem;
+}
