@@ -5,4 +5,32 @@
     --lightblue: #5274D8;
 }
 
+body{
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
 
+#mobile-menu{
+    width: 2rem;
+    height: 2rem;
+}
+
+header button{
+    color: white;
+    background-color: var(--lightblue);
+    border:none;
+    border-radius: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+header li{
+    margin-left: 1rem;
+}
+
+header button{
+    margin-left: 4rem;
+}
+
+#logo{
+    margin-right: 5rem;
+}

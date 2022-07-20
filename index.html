@@ -16,21 +16,32 @@
 <body>
     
     <header>
-
-        <nav>
-            <img src="assets/images/Logo.png" alt="SAKS logo">
-            <img id="mobile-menu" src="assets/images/bars-solid.svg" alt="bars-solid-icon">
-            <ul id = "nav-list">
-                <li><a href="">Quem Somos</a></li>
-                <li><a href="">Previdência privada</a></li>
-                <li><a href="">Portabilidade</a></li>
-                <li><a href="">Seja um parceiro</a></li>
-                <li><a href="">Calculadora Financeira</a></li>
-                <li><a href="">Nosso Blog</a></li>
-                <button id="registration-button">Comece agora</button>
-            </ul>
-        </nav>
-
+        <div class="container mt-4">
+            <nav class="navbar navbar-expand-sm">
+                <a href="https://hellosaks.com/" class="navbar-brand" id="logo" alt="SAKS logo"> <img src="assets/images/Logo.png"> </a>
+                <button 
+                type="button"   
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" 
+                class="navbar-toggler" 
+                araua-controls="navbarNav" 
+                aria-expanded="false" 
+                araia-labal="Toggle navigation">
+                    <img id="mobile-menu" src="assets/images/bars-solid.svg" alt="bars-solid-icon">
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active"><a class="nav-link" href="https://hellosaks.com/quem-somos/">Quem Somos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://shots.hellosaks.com/previdencia-privada/?_gl=1*1lgctrg*_ga*MTM5Njg5NDA2OC4xNjU4MDk1OTAy*_ga_10XR2WQ0H1*MTY1ODI2Nzc5NS44LjEuMTY1ODI2ODQyNy41OQ..&_ga=2.132437581.2110489514.1658095902-1396894068.1658095902">Previdência privada</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://hellosaks.com/portabilidade/">Portabilidade</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://saks2b.hellosaks.com/?_gl=1%2A1eo4lae%2A_ga%2AMTM5Njg5NDA2OC4xNjU4MDk1OTAy%2A_ga_10XR2WQ0H1%2AMTY1ODI2Nzc5NS44LjEuMTY1ODI2ODQ2Mi4yNA..&_ga=2.132437581.2110489514.1658095902-1396894068.1658095902">Seja um parceiro</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Calculadora Financeira</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://shots.hellosaks.com/?_gl=1%2Amr492f%2A_ga%2AMTM5Njg5NDA2OC4xNjU4MDk1OTAy%2A_ga_10XR2WQ0H1%2AMTY1ODI2Nzc5NS44LjEuMTY1ODI2ODQ5MS42MA..&_ga=2.266720973.2110489514.1658095902-1396894068.1658095902">Nosso Blog</a></li>
+                    <button id="registration-button">Comece agora</button>
+                </ul>
+                </div>
+            </nav>
+        </div>
     </header>    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
