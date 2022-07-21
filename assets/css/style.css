@@ -23,10 +23,6 @@ header button{
     padding-right: 2rem;
 }
 
-header li{
-    margin-left: 1rem;
-}
-
 header button{
     margin-left: 4rem;
 }
@@ -34,3 +30,15 @@ header button{
 #logo{
     margin-right: 5rem;
 }
+
+.nav-link {
+    color: var(--darkblue)!important;
+    transition: 0.3s;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    color: var(--lightblue)!important;
+}
+
