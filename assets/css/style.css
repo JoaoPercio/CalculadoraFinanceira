@@ -7,8 +7,13 @@
 
 body{
     font-family: 'Plus Jakarta Sans', sans-serif;
+   
 }
-
+h1{
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    text-align: center;
+    font-weight: 1400px;
+}
 #mobile-menu{
     width: 2rem;
     height: 2rem;
@@ -23,22 +28,69 @@ header button{
     padding-right: 2rem;
 }
 
+header li{
+    margin-left: 1rem;
+}
+
 header button{
     margin-left: 4rem;
 }
+
 
 #logo{
     margin-right: 5rem;
 }
 
-.nav-link {
-    color: var(--darkblue)!important;
-    transition: 0.3s;
-    font-size: 1rem;
-    font-weight: bold;
+.limpar{
+    text-align: center;
+    background-color: #5274D8;
+    width: 80px;
+    height: 60px;
+    border-radius: 15px;
+    border: 1px solid #5274D8;
+    font-weight: 600;
+    color:white;
+    font-family:  'Plus Jakarta Sans', sans-serif;
+}
+.limpar:hover{
+    background-color:#132644;
+    border: 1px solid #132644;
 }
 
-.nav-link:hover {
-    color: var(--lightblue)!important;
+.submit{
+    text-align: center;
+    background-color: #5274D8;
+    width: 80px;
+    height: 60px;
+    border-radius: 15px;
+    border: 1px solid #5274D8;
+    font-weight: 600;
+    color: white;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.submit:hover{
+    background-color:#132644;
+    border: 1px solid #132644;
 }
 
+.container-md{
+    width: 50% !important;
+    height: 50% !important;
+    border: 2px solid #5274D8;
+    border-radius: 10px;
+    box-shadow: 9000px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 50px !important;
+}
+
+@media (max-width: 1300px) 
+{
+  .container-md{
+    width: 100% !important;
+    height: 100% !important;
+    margin-left: 20% !important;
+  }
+  
+  
+}
