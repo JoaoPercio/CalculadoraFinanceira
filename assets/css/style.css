@@ -14,6 +14,12 @@ h1{
     text-align: center;
     font-weight: 1400px;
 }
+
+h1{
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    text-align: center;
+}
+
 #mobile-menu{
     width: 2rem;
     height: 2rem;
@@ -73,6 +79,7 @@ header button{
     border: 1px solid #132644;
 }
 
+
 .container-md{
     width: 50% !important;
     height: 50% !important;
@@ -82,7 +89,7 @@ header button{
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 50px !important;
-}
+
 
 @media (max-width: 1300px) 
 {
