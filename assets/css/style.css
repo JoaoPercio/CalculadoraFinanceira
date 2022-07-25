@@ -7,12 +7,19 @@
 
 body{
     font-family: 'Plus Jakarta Sans', sans-serif;
+   
 }
 h1{
     font-family: 'Plus Jakarta Sans', sans-serif;
     text-align: center;
-    font-weight: 800;
+    font-weight: 1400px;
 }
+
+h1{
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    text-align: center;
+}
+
 #mobile-menu{
     width: 2rem;
     height: 2rem;
@@ -34,6 +41,7 @@ header li{
 header button{
     margin-left: 4rem;
 }
+
 
 #logo{
     margin-right: 5rem;
@@ -71,11 +79,17 @@ header button{
     border: 1px solid #132644;
 }
 
-.container-md {
+
+.container-md{
     width: 50% !important;
     height: 50% !important;
-    
-}
+    border: 2px solid #5274D8;
+    border-radius: 10px;
+    box-shadow: 9000px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 50px !important;
+
 
 @media (max-width: 1300px) 
 {
