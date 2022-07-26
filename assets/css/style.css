@@ -12,7 +12,6 @@ body{
 h1{
     font-family: 'Plus Jakarta Sans', sans-serif;
     text-align: center;
-    font-weight: 1400px;
 }
 
 h1{
@@ -89,7 +88,9 @@ header button{
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 50px !important;
+}
 
+@media (max-width: 1300px) {
 }
 @media (max-width: 1300px) 
 {
