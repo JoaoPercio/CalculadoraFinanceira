@@ -80,7 +80,7 @@ header button{
 
 
 .container-md{
-    width: 50% !important;
+    width: 55% !important;
     height: 50% !important;
     border: 2px solid #5274D8;
     border-radius: 10px;
@@ -91,6 +91,9 @@ header button{
 }
 
 @media (max-width: 1300px) {
+}
+@media (max-width: 1300px) 
+{
   .container-md{
     width: 100% !important;
     height: 100% !important;
