@@ -88,10 +88,9 @@ header button{
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 50px !important;
+}
 
-
-@media (max-width: 1300px) 
-{
+@media (max-width: 1300px) {
   .container-md{
     width: 100% !important;
     height: 100% !important;
