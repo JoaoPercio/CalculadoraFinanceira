@@ -1,19 +1,19 @@
 function valorTotalInvestido (valorInicial, valorMensal, tempo, tempoInvestido){
     // recuperação de todos os valores informados na tela
-    window.valorTotalInvestido = 0;
+    window.valorTotalInvestidoR = 0;
     //calculo
     if(tempoInvestido == 1) {
-        valorTotalInvestido = Number(valorMensal) * Number(tempo) + Number(valorInicial);
+        valorTotalInvestidoR = Number(valorMensal) * Number(tempo) + Number(valorInicial);
     } else if(tempoInvestido == 2) {
-        valorTotalInvestido = Number(valorMensal) * Number(tempo) * 12 + Number(valorInicial);
+        valorTotalInvestidoR = Number(valorMensal) * Number(tempo) * 12 + Number(valorInicial);
     }
     // setar todos os resultados
-    document.getElementById('valorTotalInvestidoP').innerHTML = valorTotalInvestido;
+    document.getElementById('valorTotalInvestidoP').innerHTML = valorTotalInvestidoR;
 }
 
 function valorTotalJuros (valorInicial, valorMensal, tempo, taxa, tempoInvestido, tempoRendimento){
     i = 0;
-    window.valorTotalJuros = 0;
+    window.valorTotalJurosR = 0;
     let saldo = valorInicial;
 
     if(tempoInvestido == 1){
@@ -22,9 +22,9 @@ function valorTotalJuros (valorInicial, valorMensal, tempo, taxa, tempoInvestido
             for(i == 0; i <= tempo; i++) { 
                 saldo = (Number(taxa) * Number(saldo)) + Number(saldo) + Number(valorMensal);
             } 
-            valorTotalJuros = saldo - valorTotalInvestido ;
+            valorTotalJurosR = saldo - valorTotalInvestidoR ;
             } else {  // funcional | Rendimento mensal | periodo Mensal | caso seja 0 ou menor
-                valorTotalJuros = 0;
+                valorTotalJurosR = 0;
             }
         } else if(tempoRendimento == 2){ // funcional | Rendimento anual | Periodo Mensal
             if(tempo >= 12){
@@ -36,9 +36,9 @@ function valorTotalJuros (valorInicial, valorMensal, tempo, taxa, tempoInvestido
                     saldo = Number(saldo) + Number(valorMensal)* 12;
                     saldo = Number(taxa) * Number(saldo) + Number(saldo);
                 }
-                valorTotalJuros = saldo - valorTotalInvestido ;
+                valorTotalJurosR = saldo - valorTotalInvestidoR ;
             } else{ // funcional | Rendimento anual | periodo Mensal | caso seja 0 ou menor
-                valorTotalJuros = 0;
+                valorTotalJurosR = 0;
                 //avisar que o rendimento está anual e não passou 1 ano?
             }    
         } 
@@ -49,9 +49,9 @@ function valorTotalJuros (valorInicial, valorMensal, tempo, taxa, tempoInvestido
             for(i == 0; i <= tempo*12; i++) { 
                 saldo = (Number(taxa) * Number(saldo)) + Number(saldo) + Number(valorMensal);
             } 
-            valorTotalJuros = saldo - valorTotalInvestido ;
+            valorTotalJurosR = saldo - valorTotalInvestidoR ;
             } else { // funcional | Rendimento mensal | caso seja 0 ou menor
-                    valorTotalJuros = 0;
+                    valorTotalJurosR = 0;
             }
         } else if(tempoRendimento == 2){ // funcional |  Rendimento anual
             if(tempo >= 1){
@@ -59,14 +59,14 @@ function valorTotalJuros (valorInicial, valorMensal, tempo, taxa, tempoInvestido
                     saldo = Number(saldo) + Number(valorMensal)* 12;
                     saldo = Number(taxa) * Number(saldo) + Number(saldo);
                 }
-                valorTotalJuros = saldo - valorTotalInvestido ;
+                valorTotalJurosR = saldo - valorTotalInvestidoR ;
             } else { // funcional | Rendimento anual | caso seja 0 ou menor
-                valorTotalJuros = 0;
+                valorTotalJurosR = 0;
         }
         }
     }
 
-    document.getElementById('valorTotalJurosP').innerHTML = valorTotalJuros;
+    document.getElementById('valorTotalJurosP').innerHTML = valorTotalJurosR;
 }
 
 
@@ -77,22 +77,22 @@ function impostoRenda (tempo, tempoInvestido) {
         dias = tempo * 30 * 12;
     }
         
-        window.impostoRenda = 0;
+        window.impostoRendaR = 0;
     if( dias <= 180){
-        impostoRenda = valorTotalJuros * 0.225;
+        impostoRendaR = valorTotalJurosR * 0.225;
     } if (dias >= 181 && dias <= 360) {
-        impostoRenda = valorTotalJuros * 0.2;
+        impostoRendaR = valorTotalJurosR * 0.2;
     } if (dias >= 361 && dias <= 720){
-        impostoRenda = valorTotalJuros * 0.175;
+        impostoRendaR = valorTotalJurosR * 0.175;
     } if (dias > 720){
-        impostoRenda = valorTotalJuros * 0.15;
+        impostoRendaR = valorTotalJurosR * 0.15;
     }
 
-    document.getElementById('valorImpostoRendaP').innerHTML = impostoRenda;
+    document.getElementById('valorImpostoRendaP').innerHTML = impostoRendaR;
 }
 
 function calculoRedimento(){
-    rendimento = valorTotalInvestido + valorTotalJuros- impostoRenda;
+    rendimento = valorTotalInvestidoR + valorTotalJurosR - impostoRendaR;
     document.getElementById('ValorTotalFinalP').innerHTML = rendimento;
 }
 
