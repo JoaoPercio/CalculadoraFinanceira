@@ -108,11 +108,14 @@ function chamarCalculo(){
 }
 
 function drawChart(tempoInvestido, tempo, valorInicial, valorMensal) {
+
+
     i = 0;
     window.tempoGrafico = [];
     window.valoresInvestidoR = [];
     let ctx = document.getElementById('grafico');
     document.getElementById("line_top_x").style.opacity = 1;
+
 
     if(tempoInvestido == 1){
         // funcional | Rendimento mensal | Periodo Mensal
@@ -157,7 +160,9 @@ console.log("valores do juros" + valoresJurosR);
     };
     
 
-
+    if (Chart.getChart("grafico")){
+        Chart.getChart("grafico").destroy();
+      }
     grafico = new Chart(ctx, config);
 }
 
