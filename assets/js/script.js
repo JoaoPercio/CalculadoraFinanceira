@@ -125,8 +125,8 @@ function drawChart(tempoInvestido, tempo, valorInicial, valorMensal) {
            } 
    } else if (tempoInvestido == 2){ // periodo anual
        for(i == 0; i <= tempo*12; i++) { 
-        tempoGrafico[i] = tempo;
         tempoGrafico[i] = i;
+        valoresInvestidoR[i] = Number(valorInicial) + Number(valorMensal)*i;
         }
     }
 console.log(valoresInvestidoR);
