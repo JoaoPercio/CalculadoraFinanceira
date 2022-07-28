@@ -7,7 +7,7 @@
 
 body{
     font-family: 'Plus Jakarta Sans', sans-serif;
-   
+     
 }
 h1{
     font-family: 'Plus Jakarta Sans', sans-serif;
@@ -95,10 +95,12 @@ header button{
 @media (max-width: 1300px) 
 {
   .container-md{
-    width: 100% !important;
+    width: 90% !important;
     height: 100% !important;
-    margin-left: 20% !important;
   }
   
   
+}
+.imgF{
+  width: 100%;
 }
