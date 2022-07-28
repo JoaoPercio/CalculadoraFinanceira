@@ -15,16 +15,26 @@ function valorTotalJuros (valorInicial, valorMensal, tempo, taxa, tempoInvestido
     
     i = 0;
     window.valorTotalJurosR = 0.00;
+    window.valoresJurosR = [];
     let saldo = valorInicial;
     rend= 0.0;
+    
 
     if(tempoInvestido == 1){
          // funcional | Rendimento mensal | Periodo Mensal
          for(i == 0; i <= tempo; i++) { 
-                rend= taxa * saldo;
-               valorTotalJurosR= valorTotalJurosR + rend;
-               saldo= saldo + valorMensal+rend;
-            } 
+            if(i == 0){
+                rend = taxa * saldo;
+                valorTotalJurosR= valorTotalJurosR + rend;
+                saldo = saldo + rend;
+                valoresJurosR[i] = saldo;
+            }else{
+                rend= taxa * (saldo + valorMensal);
+                valorTotalJurosR= valorTotalJurosR + rend;
+                saldo= saldo + valorMensal+rend;
+                valoresJurosR[i] = saldo;
+            }    
+        } 
         
            
 
@@ -33,6 +43,7 @@ function valorTotalJuros (valorInicial, valorMensal, tempo, taxa, tempoInvestido
             rend= taxa * saldo;
             valorTotalJurosR= valorTotalJurosR + rend;
             saldo= saldo + valorMensal+rend;
+            valoresJurosR[i] = valorTotalJurosR;
             } 
         
            
@@ -70,7 +81,7 @@ function calculoRedimento(){
 function chamarCalculo(){
     // pega os valores dos inputs
     let valorInicial = document.getElementById('valorInicial').value;
-    valorInicial=viraNormal(valorInicial)
+    valorInicial = viraNormal(valorInicial)
     let valorMensal = document.getElementById('valorMensal').value;
     valorMensal=viraNormal(valorMensal)
     let taxa= document.getElementById('taxa').value;
@@ -86,52 +97,64 @@ function chamarCalculo(){
     valorTotalJuros (valorInicial,valorMensal, tempo, taxa/100, tempoInvestido);
     impostoRenda (tempo, tempoInvestido);
     calculoRedimento();
+    drawChart(tempoInvestido, tempo, valorInicial, valorMensal);
 
     console.log("TempoInvestido: " + tempoInvestido);
 }
-function drawChart() {
 
-    var data = new google.visualization.DataTable();
-    data.addColumn('number', 'Investimento');
-    data.addColumn('number', 'rendimento');
-    data.addColumn('number', 'Investimento Total');
-   
+function drawChart(tempoInvestido, tempo, valorInicial, valorMensal) {
+    i = 0;
+    window.tempoGrafico = [];
+    window.valoresInvestidoR = [];
+    let ctx = document.getElementById('grafico');
+    document.getElementById("line_top_x").style.opacity = 1;
 
-    data.addRows([
-      [1,  37.8, 1 ],
-      [2,  30.9, 2],
-      [3,  25.4, 3],
-      [4,  11.7, 4],
-      [5,  11.9, 5],
-      [6,   8.8, 6],
-      [7,   7.6, 7],
-      [8,  12.3, 8],
-      [9,  16.9,9],
-      [10, 12.8, 10],
-      [11,  5.3, 11 ],
-      [12,  6.6, 12],
-      [13,  4.8, 13 ],
-      [14,  4.2, 14]
-    ]);
-
-    var options = {
-      chart: {
-        title: 'Investimento',
-        
-      },
-      width: 600,
-      height: 500,
-      axes: {
-        x: {
-          0: {side: 'top'}
+    if(tempoInvestido == 1){
+        // funcional | Rendimento mensal | Periodo Mensal
+        for(i == 0; i <= tempo; i++) { 
+            tempoGrafico[i] = i;
+            valoresInvestidoR[i] = Number(valorInicial) + Number(valorMensal)*i;
+           } 
+   } else if (tempoInvestido == 2){ // periodo anual
+       for(i == 0; i <= tempo*12; i++) { 
+        tempoGrafico[i] = tempo;
+        tempoGrafico[i] = i;
         }
-      }
+    }
+console.log(valoresInvestidoR);
+console.log("valores do juros" + valoresJurosR);
+    const data = {
+        labels: tempoGrafico,
+        datasets: [{
+            label: 'Valor Investido',
+            data: valoresInvestidoR,
+            backgroundColor: ['#5274D8'],
+            fill: false,
+            borderColor: '#5274D8',
+            tension: 0.1,
+        },{
+            label: 'Valor com Juros',
+            data: valoresJurosR,
+            backgroundColor: ['#132644'],
+            fill: false,
+            borderColor: '#132644',
+            tension: 0.1,
+        }]
     };
 
-    var chart = new google.charts.Line(document.getElementById('line_top_x'));
 
-    chart.draw(data, google.charts.Line.convertOptions(options));
-  }
+    const config = {
+        type: 'line',
+        data: data,
+        options: {
+            responsive: true,
+        }
+    };
+    
+
+
+    grafico = new Chart(ctx, config);
+}
 
 
 function formatarMoeda(moeda) {
@@ -150,6 +173,7 @@ function formatarMoeda(moeda) {
     elemento.value = valor;
     if(valor == 'NaN') elemento.value = '';
 }
+
 function viraNormal(variable){
     if(variable ===""){
         variable=0;
@@ -159,11 +183,13 @@ function viraNormal(variable){
     variable = variable.replace(/\,/g,".")
     return parseFloat(variable)
 }
+
 var deFloatParaMoeda = new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL',
     minimumFractionDigits: 2,
   });
+
 function limpar(){
     document.getElementById('ValorTotalFinalP').innerHTML = "";
     document.getElementById('valorImpostoRendaP').innerHTML = "";
