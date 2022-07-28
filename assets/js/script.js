@@ -8,7 +8,7 @@ function valorTotalInvestido (valorInicial, valorMensal, tempo, tempoInvestido){
         valorTotalInvestidoR = Number(valorMensal) * Number(tempo) * 12 + Number(valorInicial);
     }
     // setar todos os resultados
-    document.getElementById('valorTotalInvestidoP').innerHTML =  deFloatParaMoeda.format(valorTotalInvestidoR);
+    document.getElementById('valorTotalInvestidoP').innerHTML =  transformaMoeda.format(valorTotalInvestidoR);
 }
 
 function valorTotalJuros (valorInicial, valorMensal, tempo, taxa, tempoInvestido, tempoRendimento){
@@ -53,7 +53,7 @@ function valorTotalJuros (valorInicial, valorMensal, tempo, taxa, tempoInvestido
             }
         }        
     }
-    document.getElementById('valorTotalJurosP').innerHTML =  deFloatParaMoeda.format(valorTotalJurosR);
+    document.getElementById('valorTotalJurosP').innerHTML =  transformaMoeda.format(valorTotalJurosR);
 }
 
 
@@ -75,12 +75,12 @@ function impostoRenda (tempo, tempoInvestido) {
         impostoRendaR = valorTotalJurosR * (15/100);
     }
 
-    document.getElementById('valorImpostoRendaP').innerHTML =  deFloatParaMoeda.format(impostoRendaR);
+    document.getElementById('valorImpostoRendaP').innerHTML =  transformaMoeda.format(impostoRendaR);
 }
 
 function calculoRedimento(){
     rendimento = valorTotalInvestidoR + valorTotalJurosR - impostoRendaR;
-    document.getElementById('ValorTotalFinalP').innerHTML = deFloatParaMoeda.format(rendimento);
+    document.getElementById('ValorTotalFinalP').innerHTML = transformaMoeda.format(rendimento);
 }
 
 function chamarCalculo(){
@@ -125,8 +125,8 @@ function drawChart(tempoInvestido, tempo, valorInicial, valorMensal) {
            } 
    } else if (tempoInvestido == 2){ // periodo anual
        for(i == 0; i <= tempo*12; i++) { 
-        tempoGrafico[i] = tempo;
         tempoGrafico[i] = i;
+        valoresInvestidoR[i] = Number(valorInicial) + Number(valorMensal)*i;
         }
     }
 console.log(valoresInvestidoR);
@@ -156,6 +156,7 @@ console.log("valores do juros" + valoresJurosR);
         data: data,
         options: {
             responsive: true,
+            
         }
     };
     
@@ -194,7 +195,7 @@ function viraNormal(variable){
     return parseFloat(variable)
 }
 
-var deFloatParaMoeda = new Intl.NumberFormat('pt-BR', {
+var transformaMoeda = new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL',
     minimumFractionDigits: 2,
