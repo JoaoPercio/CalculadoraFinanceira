@@ -41,6 +41,9 @@ header button{
     margin-left: 4rem;
 }
 
+#line_top_x{
+    opacity: 0;
+}
 
 #logo{
     margin-right: 5rem;
