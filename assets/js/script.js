@@ -40,14 +40,19 @@ function valorTotalJuros (valorInicial, valorMensal, tempo, taxa, tempoInvestido
 
     } else if (tempoInvestido == 2){ // periodo anual
         for(i == 0; i <= tempo*12; i++) { 
-            rend= taxa * saldo;
-            valorTotalJurosR= valorTotalJurosR + rend;
-            saldo= saldo + valorMensal+rend;
-            valoresJurosR[i] = valorTotalJurosR;
-            } 
-        
-           
-        }
+            if(i == 0){
+                rend = taxa * saldo;
+                valorTotalJurosR= valorTotalJurosR + rend;
+                saldo = saldo + rend;
+                valoresJurosR[i] = saldo;
+            }else{
+                rend= taxa * (saldo + valorMensal);
+                valorTotalJurosR= valorTotalJurosR + rend;
+                saldo= saldo + valorMensal+rend;
+                valoresJurosR[i] = saldo;
+            }
+        }        
+    }
     document.getElementById('valorTotalJurosP').innerHTML =  deFloatParaMoeda.format(valorTotalJurosR);
 }
 
