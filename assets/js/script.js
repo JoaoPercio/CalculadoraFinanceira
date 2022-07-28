@@ -86,13 +86,24 @@ function calculoRedimento(){
 function chamarCalculo(){
     // pega os valores dos inputs
     let valorInicial = document.getElementById('valorInicial').value;
-    valorInicial = viraNormal(valorInicial)
     let valorMensal = document.getElementById('valorMensal').value;
-    valorMensal=viraNormal(valorMensal)
     let taxa= document.getElementById('taxa').value;
-    taxa=viraNormal(taxa)
     let tempo = document.getElementById('tempo').value;
 
+    if(!valorInicial || !valorMensal || !taxa || !tempo ){
+        Toastify({
+
+            text: "Campos não podem ser vazios",
+            
+            duration: 3000
+            
+            }).showToast();
+        return;
+    }
+
+    taxa=viraNormal(taxa);
+    valorMensal=viraNormal(valorMensal);
+    valorInicial = viraNormal(valorInicial);
 
     select = document.getElementById('inputGroupSelect02');
     let tempoInvestido = select.options[select.selectedIndex].value;
@@ -104,7 +115,6 @@ function chamarCalculo(){
     calculoRedimento();
     drawChart(tempoInvestido, tempo, valorInicial, valorMensal);
 
-    console.log("TempoInvestido: " + tempoInvestido);
 }
 
 function drawChart(tempoInvestido, tempo, valorInicial, valorMensal) {
@@ -129,8 +139,7 @@ function drawChart(tempoInvestido, tempo, valorInicial, valorMensal) {
         valoresInvestidoR[i] = Number(valorInicial) + Number(valorMensal)*i;
         }
     }
-console.log(valoresInvestidoR);
-console.log("valores do juros" + valoresJurosR);
+
     const data = {
         labels: tempoGrafico,
         datasets: [{
