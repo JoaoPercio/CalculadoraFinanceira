@@ -12,13 +12,17 @@ body{
 h1{
     font-family: 'Plus Jakarta Sans', sans-serif;
     text-align: center;
-    font-weight: 800;
 }
 
 
 #mobile-menu{
     width: 2rem;
     height: 2rem;
+    border: none;
+}
+
+header{
+    padding-left: 0% !important;
 }
 
 header button{
@@ -48,7 +52,6 @@ header button{
 .nav-link{
     color:#132644 !important;
     text-decoration: none;
-    font-weight: 400;
 }
 .nav-link:hover{
     color: #5274D8 !important;
@@ -84,45 +87,28 @@ header button{
     background-color:#132644;
     border: 1px solid #132644;
 }
-
-
 .container-md{
-    width: 55% !important;
-    height: 50% !important;
-    border: 2px solid #5274D8;
-    border-radius: 10px;
-    box-shadow: 9000px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 40px !important;
-    box-shadow: 4px 4px 4px  rgba(0,0,0,0.50);
-    background-color: white;
+   border: 2px solid #5274D8;
+   border-radius: 10px;
+   box-shadow: 4px 4px 4px  rgba(0,0,0,0.50);
+   background-color: white;
 }
-#maior{
-    width:60% !important;
-    padding-left: 5% !important;
+@media(max-width=800px){
+    .container-md{
+        margin-left: 10% !important;
+        margin-right: 10% !important;
+    }
 }
-@media (max-width: 1300px) {
-}
-@media (max-width: 1300px) 
-{
-  .container-md{
-    width: 90% !important;
-    height: 100% !important;
-  }
-  #maior{
-    width: 90% !important;
-    height: 100% !important;
-    padding-left: 20% !important;
-  }
-  
+#cardPrimeiro {
+    border: none;
 }
 .card-text{
+    font-size: 18;
     font-weight: 800;
-    font-size: 6;
     color: #5274D8;
+    text-align: center;
 }
-.card-header{
-    font-weight: 600;
-    
+#maior{
+    padding-left: 80px;
+    padding-top: 30px;
 }

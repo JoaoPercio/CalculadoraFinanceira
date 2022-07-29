@@ -215,4 +215,8 @@ function limpar(){
     document.getElementById('valorImpostoRendaP').innerHTML = "";
     document.getElementById('valorTotalJurosP').innerHTML =  "";
     document.getElementById('valorTotalInvestidoP').innerHTML = "";
+    if (Chart.getChart("grafico")){
+        Chart.getChart("grafico").destroy();
+      }
+      document.getElementById("line_top_x").style.opacity = 0;
 }
