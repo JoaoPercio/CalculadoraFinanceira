@@ -59,9 +59,9 @@ function valorTotalJuros (valorInicial, valorMensal, tempo, taxa, tempoInvestido
 
 function impostoRenda (tempo, tempoInvestido) {
     if(tempoInvestido == 1){
-        dias = tempo * 30;
+        dias = (tempo+1) * 30;
     } else if(tempoInvestido == 2){
-        dias = tempo * 30 * 12;
+        dias = (tempo+1) * 30 * 12;
     }
         
         window.impostoRendaR = 0;
@@ -74,7 +74,7 @@ function impostoRenda (tempo, tempoInvestido) {
     } if (dias > 720){
         impostoRendaR = valorTotalJurosR * (15/100);
     }
-
+    
     document.getElementById('valorImpostoRendaP').innerHTML =  transformaMoeda.format(impostoRendaR);
 }
 
