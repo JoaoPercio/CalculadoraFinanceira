@@ -6,6 +6,6 @@
 <p align="center">Acesse o link: https://joaopercio.github.io/CalculadoraFinanceira/</p>
 <h2 align="center">✔️Status das Questões✔️</h2>
 <p align="center">Finalizadas 28/07/2022</p>
-<h2>Documentação<h2>
-<p> https://docs.google.com/document/d/1hPXsRYQ6P7RQEF_nI2AUWl3a1rLd_ufZxrsMWlen4yg/edit <p>
+<h2 align="center">Documentação<h2>
+<p align="center"> https://docs.google.com/document/d/1hPXsRYQ6P7RQEF_nI2AUWl3a1rLd_ufZxrsMWlen4yg/edit <p>
 
