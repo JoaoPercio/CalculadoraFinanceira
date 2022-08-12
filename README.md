@@ -1,4 +1,4 @@
-﻿<h1 align="center"> CalculadoraFinanceira </h1>
+﻿<h1 align="center" style="color:black"> CalculadoraFinanceira </h1>
 <p align="center">Repositório com a solução do desafio SAKS - Calculadora de Juros composto.</p>
 <h2 align="center">🖥️Principais tecnologias usadas🖥️</h2>
 <p align="center">HTML | CSS | JS</p>
